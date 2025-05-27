@@ -1,0 +1,31 @@
+# -------------------------------------------------------------
+# Global Ignores for Main Workspace (Multi-Project React Repo)
+# -------------------------------------------------------------
+
+# Logs and Debug Files
+logs/                # Ignores any 'logs' directory
+*.log                # Ignores all files ending with .log
+npm-debug.log* # npm debug logs
+yarn-debug.log* # yarn debug logs
+yarn-error.log* # yarn error logs
+pnpm-debug.log* # pnpm debug logs
+lerna-debug.log* # Lerna debug logs
+
+# Node.js and Build Artifacts (applies to all projects)
+node_modules/       # Standard Node.js dependencies
+build/               # Common React build output directory
+dist/                # Common build output directory
+dist-ssr/            # Server-Side Rendering (SSR) build output
+*.local              # Local environment configuration files (e.g., .env.local)
+
+# Editor and OS Specific Directories/Files
+.vscode/             # VS Code workspace settings (ignores all within .vscode/)
+!.vscode/extensions.json # EXCEPT: include extensions.json for recommended extensions
+.idea/               # IntelliJ/WebStorm project files
+.DS_Store            # macOS specific files
+*.suo                # Visual Studio solution user options
+*.ntvs* # Node.js Tools for Visual Studio
+*.njsproj            # Node.js project files for Visual Studio
+*.sln                # Visual Studio solution files
+*.swp                # Vim swap files
+*.swo                # Vim swap files
