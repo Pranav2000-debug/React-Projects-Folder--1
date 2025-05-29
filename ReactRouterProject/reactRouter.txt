@@ -1,0 +1,21 @@
+RouterProvider boots up React Router with your route map.
+Current URL is / → match found → render <Layout />.
+If <Layout /> includes an <Outlet />, that’s where child routes will appear (if you define any).
+If no child routes are defined, then nothing shows in <Outlet />.
+
+React Router will insert the matching child route's component in the <Outlet />.
+So in the example above:
+Child route = <Route path="about" element={<About />} />
+Matching = user is on /about
+Component = <About />
+Where it's shown = inside <Outlet /> in <Layout />
+React Router puts the correct page inside <Outlet /> based on the URL.
+
+
+RouterProvider is the engine that uses the route definitions (made with createBrowserRouter) to decide what component to show based on the URL.
+The element you define for a route (like <Layout />) is rendered when that route matches.
+Inside <Layout />, if you use <Outlet />, React Router will insert the matching child route's component there.”
+
+Designing Links for the navbar - 
+Our first thougth would be to use the <a> tag but this tag is used to go to a different resource and reload the page, the control of this tag is handed to the browser. 
+In react we are using react router dom to build a SPA, rendering different components with the matching routes.
