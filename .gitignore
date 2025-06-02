@@ -29,3 +29,5 @@ dist-ssr/            # Server-Side Rendering (SSR) build output
 *.sln                # Visual Studio solution files
 *.swp                # Vim swap files
 *.swo                # Vim swap files
+
+desktop.ini
