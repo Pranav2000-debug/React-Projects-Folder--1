@@ -12,7 +12,7 @@ function InputContainer({ addTask, deleteAll }) {
   }
   return (
     <div className="w-full">
-      <div className="sm:w-11/12 mx-auto flex flex-col sm:flex-row space-y-2 sm:justify-center sm:items-center sm:space-y-0 sm:space-x-2">
+      <div className="sm:w-11/12 max-sm:w-3/4 mx-auto flex flex-col max-sm:items-stretch sm:flex-row space-y-2 sm:justify-center sm:items-center sm:space-y-0 sm:space-x-2">
         <input
           placeholder="Enter Task"
           value={inputTask}

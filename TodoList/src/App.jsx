@@ -38,8 +38,8 @@ function App() {
         <h1 className="text-3xl font-bold text-white space-y-6 text-center mb-6">To-Do List</h1>
         <InputContainer addTask={addSingleTask} deleteAll={deleteAll} />
         <ul className="text-white mt-6 space-y-3">
-          {tasks.map(({ id, todo }, index) => {
-            return <TaskItem key={index} singleTask={todo} deleteTask={deleteTask} taskId={id} editTask={editTask}/>;
+          {tasks.map(({ id, todo }) => {
+            return <TaskItem key={id} singleTask={todo} deleteTask={deleteTask} taskId={id} editTask={editTask}/>;
           })}
         </ul>
       </div>
