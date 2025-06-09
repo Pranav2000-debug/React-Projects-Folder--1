@@ -30,8 +30,7 @@ export function CartProvider({ children }) {
   }
 
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      [...prevCart, { ...product }]});
+    setCart((prevCart) => [...prevCart, { ...product }]);
   };
 
   const removeFromCart = (id) => {
