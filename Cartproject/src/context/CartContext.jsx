@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [price, setPrice] = useState({total: 0, oldTotal: 0});
+  const [price, setPrice] = useState({ total: 0, oldTotal: 0 });
 
   // To see changes
   useEffect(() => {
@@ -24,20 +24,41 @@ export function CartProvider({ children }) {
   }, [cart]);
 
   function totalPrice() {
-    const total = cart.reduce((acc, curr) => acc + curr.newPrice, 0);
-    const oldTotal = cart.reduce((acc, curr) => acc + curr.oldPrice, 0);
-    setPrice({total, oldTotal});
+    const total = cart.reduce((acc, curr) => acc + curr.newPrice * curr.quantity, 0);
+    const oldTotal = cart.reduce((acc, curr) => acc + curr.oldPrice * curr.quantity, 0);
+    setPrice({ total, oldTotal });
   }
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, { ...product }]);
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find((item) => item.id === product.id);
+      if (existingProduct) {
+        return prevCart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
   };
 
+  const removeCompletely = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
   const removeFromCart = (id) => {
-    setCart(cart.filter((prod) => prod.id !== id));
+    setCart((prevCart) => {
+      const existing = prevCart.find((item) => item.id === id);
+      if (!existing) return prevCart;
+
+      if (existing.quantity === 1) {
+        // Remove product entirely
+        return prevCart.filter((item) => item.id !== id);
+      } else {
+        // Decrease quantity by 1
+        return prevCart.map((item) => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item));
+      }
+    });
   };
 
-  return <CartContext.Provider value={{ cart, addToCart, removeFromCart, price, totalPrice }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ cart, addToCart, removeFromCart, price, totalPrice, removeCompletely }}>{children}</CartContext.Provider>;
 }
 
 // Hook for using context

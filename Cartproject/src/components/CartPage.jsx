@@ -5,7 +5,7 @@ import TotalsCard from "./TotalsCard";
 function CartPage() {
   const { cart } = useCart();
   return (
-    <div className="flex gap-6 px-6 ">
+    <div className="flex flex-wrap md:flex-nowrap gap-6 md:px-6">
       <div className="flex-1">
         <CartContainer></CartContainer>
       </div>
