@@ -6,12 +6,16 @@ import "./index.css";
 import App from "./App.jsx";
 import Layout from "./Layout.jsx";
 import CartPage from "./components/CartPage.jsx";
+import Register from "./components/Register.jsx";
+import Login from "./components/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<App></App>} />
       <Route path="cart" element={<CartPage />} />
+      <Route path="register" element={<Register />} />
+      <Route path="login" element={<Login />} />
     </Route>
   )
 );

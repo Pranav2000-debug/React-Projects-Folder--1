@@ -6,15 +6,30 @@ function Navbar() {
 
   return (
     <header className="w-full bg-[#27213C] text-white sticky top-0 z-50">
-      <nav className="flex justify-between items-center px-6 py-4">
+      <nav className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
         <div className="text-2xl font-bold">My Site</div>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-6 font-semibold text-lg">
-          <Link to="/">Home</Link>
-          <Link to="/cart">Cart</Link>
-          <li>Careers</li>
-          <li>Contact</li>
+          <Link to="/" className="relative inline-block text-white group">
+            Home
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+          </Link>
+
+          <Link to="/cart" className="relative inline-block text-white group">
+            Cart
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+          </Link>
+
+          <Link to="/register" className="relative inline-block text-white group">
+            Sign In
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+          </Link>
+
+          <Link to="/login" className="relative inline-block text-white group">
+            Login
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+          </Link>
         </ul>
 
         {/* Mobile Hamburger */}
@@ -44,8 +59,9 @@ function Navbar() {
           <Link to="/cart" onClick={() => setMenuOpen(false)}>
             Cart
           </Link>
-          <li onClick={() => setMenuOpen(false)}>Careers</li>
-          <li onClick={() => setMenuOpen(false)}>Contact</li>
+          <Link to="/register" onClick={() => setMenuOpen(false)}>
+            Login
+          </Link>
         </ul>
       </div>
     </header>

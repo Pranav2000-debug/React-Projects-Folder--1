@@ -19,7 +19,7 @@ export default function ProductItem({ id, name, brand, img, alt, newPrice, oldPr
   }
 
   return (
-    <div data-id={id} className="w-64 shadow-xl bg-white rounded-lg px-4 space-y-2 pb-3">
+    <div data-id={id} className="w-[90%] sm:w-64 shadow-xl bg-white rounded-lg px-4 space-y-2 pb-3">
       <div className="w-full h-[240px]">
         <img className="h-full object-contain mx-auto" src={img} alt={alt} />
       </div>
